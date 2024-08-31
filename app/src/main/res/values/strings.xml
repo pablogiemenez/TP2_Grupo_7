@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Ejercicio_controles_grupo7</string>
+    <string name="titulo_add_contact">Formulario de contacto</string>
+    <string name="descripcion_add_contact">Este es un formulario destinado al registro de personas, sus datos personales e intereses</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="telefono">Telefono</string>
+    <string name="email">Email</string>
+    <string name="direccion">Direccion</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="continuar">Continuar</string>
 </resources>
