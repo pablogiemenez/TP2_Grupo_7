@@ -12,23 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ejercicio_controles_grupo7"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AddContact2Activity"
+            android:exported="false" />
         <!-- Registro de la MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Registro de la AddContactActivity -->
-        <activity android:name=".AddContactActivity" />
-
-        <!-- Registro de la ListContactsActivity -->
+        </activity> <!-- Registro de la AddContactActivity -->
+        <activity android:name=".AddContactActivity" /> <!-- Registro de la ListContactsActivity -->
         <activity android:name=".ListContactsActivity" />
-
     </application>
 
 </manifest>

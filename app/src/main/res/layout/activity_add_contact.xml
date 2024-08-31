@@ -184,6 +184,7 @@
             android:id="@+id/button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:onClick="ContinuarButton"
             android:text="@string/continuar" />
 
     </LinearLayout>
