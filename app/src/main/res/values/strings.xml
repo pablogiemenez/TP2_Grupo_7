@@ -9,4 +9,20 @@
     <string name="direccion">Direccion</string>
     <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
     <string name="continuar">Continuar</string>
+    <string name="descripcion_add_contact2">A continuiación, por favor se pide comlpetar más datos personales.</string>
+
+    <string name="estudiosAlcanzados">Nivel de estudios alcanzados</string>
+    <string name="rbPrimarioIncompleto">Primario Incompleto</string>
+    <string name="rbPrimarioCompleto">Primario Completo</string>
+    <string name="rbSecunIncompleto">Secundario Incompleto</string>
+    <string name="rbSecunCompleto">Secundario Completo</string>
+    <string name="rbOtros">Otros</string>
+    <string name="tvIntereses">Intereses</string>
+    <string name="cbDeporte">Deporte</string>
+    <string name="cbMusica">Musica</string>
+    <string name="cbArte">Arte</string>
+    <string name="cbTecnologia">Tecnologia</string>
+    <string name="tvInfo">Desea recibir información?</string>
+    <string name="swSi">Si</string>
+    <string name="btnGuardar">Guardar</string>
 </resources>

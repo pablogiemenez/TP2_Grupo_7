@@ -7,4 +7,153 @@
     android:layout_height="match_parent"
     tools:context=".AddContact2Activity">
 
+    <TextView
+        android:id="@+id/tvFormulario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/titulo_add_contact"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="360dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/descripcion_add_contact2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFormulario" />
+
+    <RadioGroup
+        android:id="@+id/rgEstudios"
+        android:layout_width="358dp"
+        android:layout_height="262dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc">
+
+        <TextView
+            android:id="@+id/tvNivel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/estudiosAlcanzados"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbPrimarioIncompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbPrimarioIncompleto" />
+
+        <RadioButton
+            android:id="@+id/rbPrimarioCompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbPrimarioCompleto" />
+
+        <RadioButton
+            android:id="@+id/rbSecunIncompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbSecunIncompleto" />
+
+        <RadioButton
+            android:id="@+id/rbSecunCompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbSecunCompleto" />
+
+        <RadioButton
+            android:id="@+id/rbOtros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbOtros" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvIntereses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="@string/tvIntereses"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgEstudios" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/tvInfo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cgIntereses" />
+
+    <Switch
+        android:id="@+id/swSi"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/swSi"
+        app:layout_constraintStart_toEndOf="@+id/tvInfo"
+        app:layout_constraintTop_toBottomOf="@+id/cgIntereses" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgIntereses"
+        android:layout_width="293dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        app:chipSpacing="10sp"
+        app:chipSpacingHorizontal="120sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIntereses">
+
+        <CheckBox
+            android:id="@+id/cbDeporte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cbDeporte" />
+
+        <CheckBox
+            android:id="@+id/cbMusica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cbMusica" />
+
+        <CheckBox
+            android:id="@+id/cbArte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cbArte" />
+
+        <CheckBox
+            android:id="@+id/cbTecnologia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cbTecnologia" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/btnGuardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swSi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
