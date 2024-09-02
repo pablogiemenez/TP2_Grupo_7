@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
@@ -21,6 +20,7 @@ import org.json.JSONObject;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class AddContact2Activity extends AppCompatActivity {
 
@@ -44,57 +44,54 @@ public class AddContact2Activity extends AppCompatActivity {
         btnGuardar = findViewById(R.id.btnGuardar);
 
         // Acción al presionar el botón guardar
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Obtener la selección del RadioGroup
-                int selectedEstudioId = rgEstudios.getCheckedRadioButtonId();
-                RadioButton selectedEstudio = findViewById(selectedEstudioId);
+        btnGuardar.setOnClickListener(v -> {
+            // Obtener la selección del RadioGroup
+            int selectedEstudioId = rgEstudios.getCheckedRadioButtonId();
+            RadioButton selectedEstudio = findViewById(selectedEstudioId);
 
-                if (selectedEstudio == null) {
-                    Toast.makeText(AddContact2Activity.this, "Por favor, selecciona un nivel de estudios", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (selectedEstudio == null) {
+                Toast.makeText(AddContact2Activity.this, "Por favor, selecciona un nivel de estudios", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                // Obtener los datos del primer formulario desde el intent
-                Intent intent = getIntent();
-                String nombre = intent.getStringExtra("nombre");
-                String apellido = intent.getStringExtra("apellido");
-                String telefono = intent.getStringExtra("telefono");
-                String email = intent.getStringExtra("email");
-                String direccion = intent.getStringExtra("direccion");
-                String fechaNacimiento = intent.getStringExtra("fechaNacimiento");
-                String tipoTelefono = intent.getStringExtra("tipoTelefono");
-                String tipoEmail = intent.getStringExtra("tipoEmail");
+            // Obtener los datos del primer formulario desde el intent
+            Intent intent = getIntent();
+            String nombre = intent.getStringExtra("nombre");
+            String apellido = intent.getStringExtra("apellido");
+            String telefono = intent.getStringExtra("telefono");
+            String email = intent.getStringExtra("email");
+            String direccion = intent.getStringExtra("direccion");
+            String fechaNacimiento = intent.getStringExtra("fechaNacimiento");
+            String tipoTelefono = intent.getStringExtra("tipoTelefono");
+            String tipoEmail = intent.getStringExtra("tipoEmail");
 
-                // Crear un objeto JSON con todos los datos
-                JSONObject contactObject = new JSONObject();
-                try {
-                    contactObject.put("nombre", nombre);
-                    contactObject.put("apellido", apellido);
-                    contactObject.put("telefono", telefono);
-                    contactObject.put("email", email);
-                    contactObject.put("direccion", direccion);
-                    contactObject.put("fechaNacimiento", fechaNacimiento);
-                    contactObject.put("tipoTelefono", tipoTelefono);
-                    contactObject.put("tipoEmail", tipoEmail);
-                    contactObject.put("nivelEstudios", selectedEstudio.getText().toString());
+            // Crear un objeto JSON con todos los datos
+            JSONObject contactObject = new JSONObject();
+            try {
+                contactObject.put("nombre", nombre);
+                contactObject.put("apellido", apellido);
+                contactObject.put("telefono", telefono);
+                contactObject.put("email", email);
+                contactObject.put("direccion", direccion);
+                contactObject.put("fechaNacimiento", fechaNacimiento);
+                contactObject.put("tipoTelefono", tipoTelefono);
+                contactObject.put("tipoEmail", tipoEmail);
+                contactObject.put("nivelEstudios", selectedEstudio.getText().toString());
 
-                    JSONArray intereses = new JSONArray();
-                    if (cbDeporte.isChecked()) intereses.put(cbDeporte.getText().toString());
-                    if (cbMusica.isChecked()) intereses.put(cbMusica.getText().toString());
-                    if (cbArte.isChecked()) intereses.put(cbArte.getText().toString());
-                    if (cbTecnologia.isChecked()) intereses.put(cbTecnologia.getText().toString());
-                    contactObject.put("intereses", intereses);
+                JSONArray intereses = new JSONArray();
+                if (cbDeporte.isChecked()) intereses.put(cbDeporte.getText().toString());
+                if (cbMusica.isChecked()) intereses.put(cbMusica.getText().toString());
+                if (cbArte.isChecked()) intereses.put(cbArte.getText().toString());
+                if (cbTecnologia.isChecked()) intereses.put(cbTecnologia.getText().toString());
+                contactObject.put("intereses", intereses);
 
-                    contactObject.put("recibeInformacion", swSi.isChecked());
+                contactObject.put("recibeInformacion", swSi.isChecked());
 
-                    // Guardar en un archivo interno
-                    saveToFile(contactObject);
-                } catch (JSONException e) {
-                    Log.e("AddContact2Activity", "Error al crear el objeto JSON", e);
-                    Toast.makeText(AddContact2Activity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                }
+                // Guardar en un archivo interno
+                saveToFile(contactObject);
+            } catch (JSONException e) {
+                Log.e("AddContact2Activity", "Error al crear el objeto JSON", e);
+                Toast.makeText(AddContact2Activity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -104,13 +101,17 @@ public class AddContact2Activity extends AppCompatActivity {
         try {
             // Leer el archivo existente o inicializar si no existe
             FileInputStream fis = null;
-            String existingData = "";
+            String existingData;
 
             try {
                 fis = openFileInput(fileName);
                 byte[] buffer = new byte[fis.available()];
-                fis.read(buffer);
-                existingData = new String(buffer, "UTF-8");
+                int bytesRead = fis.read(buffer);
+                if (bytesRead > 0) {
+                    existingData = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
+                } else {
+                    existingData = "";
+                }
             } catch (IOException e) {
                 Log.e("SaveToFileError", "Archivo no encontrado, se creará uno nuevo", e);
                 existingData = "";
