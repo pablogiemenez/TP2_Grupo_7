@@ -25,7 +25,7 @@ public class AddContactActivity extends AppCompatActivity {
         conexVariables();
 
         // enlace de datos con spinner
-        String [] opciones={"casa","Trabajo","movil"};
+        String [] opciones={"Casa","Trabajo","Movil"};
         ArrayAdapter<String> adapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,opciones);
         sp_tel.setAdapter(adapter);
         sp_mail.setAdapter(adapter);
