@@ -128,4 +128,8 @@ public class ContactDetailsActivity extends AppCompatActivity {
             Toast.makeText(this, "Error procesando el JSON", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void Volver(android.view.View view) {
+        finish(); // Cierra el activity actual y regresa al anterior
+    }
 }

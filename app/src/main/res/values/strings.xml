@@ -9,6 +9,7 @@
     <string name="direccion">Direccion</string>
     <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
     <string name="continuar">Continuar</string>
+    <string name="volver">Volver</string>
     <string name="descripcion_add_contact2">A continuiación, por favor se pide comlpetar más datos personales.</string>
 
     <string name="estudiosAlcanzados">Nivel de estudios alcanzados</string>

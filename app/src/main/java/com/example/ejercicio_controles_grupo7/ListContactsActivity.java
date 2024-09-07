@@ -92,4 +92,8 @@ public class ListContactsActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    public void Volver(android.view.View view) {
+        finish(); // Cierra el activity actual y regresa al anterior
+    }
 }

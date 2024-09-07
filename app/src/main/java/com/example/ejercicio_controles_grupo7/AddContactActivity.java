@@ -106,4 +106,8 @@ public class AddContactActivity extends AppCompatActivity {
 
         return true;
     }
+
+    public void Volver(android.view.View view) {
+        finish(); // Cierra el activity actual y regresa al anterior
+    }
 }
