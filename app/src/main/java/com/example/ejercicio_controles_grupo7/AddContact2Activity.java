@@ -89,10 +89,14 @@ public class AddContact2Activity extends AppCompatActivity {
 
                 // Guardar en un archivo interno
                 saveToFile(contactObject);
+
+                //Volver al inicio si se guardo
+                startActivity(new Intent(AddContact2Activity.this, MainActivity.class));
             } catch (JSONException e) {
                 Log.e("AddContact2Activity", "Error al crear el objeto JSON", e);
                 Toast.makeText(AddContact2Activity.this, "Error al guardar los datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
+
         });
     }
 

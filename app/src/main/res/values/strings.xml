@@ -24,5 +24,17 @@
     <string name="cbTecnologia">Tecnologia</string>
     <string name="tvInfo">Desea recibir información?</string>
     <string name="swSi">Si</string>
+
     <string name="btnGuardar">Guardar</string>
+    <string name="tv_TipoEmailContacto">TipoEmail</string>
+    <string name="tv_datoDireccion">Direccion</string>
+    <string name="tv_datoEmail">Email</string>
+    <string name="tv_datoEstAlcanzado">Estudios alcanzados</string>
+    <string name="tv_datoFechaNac" > Fecha Nacimiento</string>
+    <string name="tv_DatoInfo">Info</string>
+    <string name="tv_datointereses">intereses</string>
+    <string name="tv_DatoNombre">Nombre</string>
+    <string name="tv_DatoTelefono">Telefono</string>
+    <string name="tv_tipoTelDato">TipoTel</string>
+    <string name="tv_infoContacto">Recibir información</string>
 </resources>
